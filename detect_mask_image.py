@@ -12,7 +12,7 @@ import os
 def mask_image():
 	# construct the argument parser and parse the arguments
 	ap = argparse.ArgumentParser()
-	ap.add_argument("-i", "--image", required=True,
+	ap.add_argument("-i", "--image",
 		help="path to input image")
 	ap.add_argument("-f", "--face", type=str,
 		default="face_detector",
@@ -37,7 +37,7 @@ def mask_image():
 
 	# load the input image from disk, clone it, and grab the image spatial
 	# dimensions
-	image = cv2.imread(args["image"])
+	image = cv2.imread("images/pic1.jpeg")
 	orig = image.copy()
 	(h, w) = image.shape[:2]
 
@@ -97,8 +97,9 @@ def mask_image():
 			cv2.rectangle(image, (startX, startY), (endX, endY), color, 2)
 
 	# show the output image
-	cv2.imshow("Output", image)
-	cv2.waitKey(0)
+# 	cv2.imshow("Output", image)
+# 	cv2.waitKey(0)
+	return image
 	
 if __name__ == "__main__":
 	mask_image()
