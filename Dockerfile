@@ -35,6 +35,7 @@ RUN apt-get install ffmpeg libsm6 libxext6  -y
 
 WORKDIR /app
 RUN git clone https://github.com/dheerajakula/Face-Mask-Detection.git
+WORKDIR Face-Mask-Detection
 RUN pip3 install -r requirements.txt --no-cache-dir
 EXPOSE 5000
 CMD ["python", "application.py"]
